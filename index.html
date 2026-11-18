@@ -420,7 +420,7 @@ body.master-on{padding-bottom:110px}
   <div class="wrap">
     <div class="price-head">
       <h2 data-t="prices.title">Цены</h2>
-      <p class="lead" style="margin:0" data-t="prices.lead">Вес торта считаем по гостям: примерно 150 г на человека. Минимальный торт 2 кг, двухъярусный от 3,5 кг.</p>
+      <p class="lead" style="margin:0" data-t="prices.lead">Считаю примерно по 250 г на человека. Минимальный вес торта — 2 кг, на 6–8 гостей. Двухъярусные торты делаю от 3,5 кг.</p>
     </div>
     <div class="ptable" id="price-list">
       <div>
@@ -464,7 +464,7 @@ body.master-on{padding-bottom:110px}
         <div class="strip" id="p-ph"></div>
         <div class="kg">
           <div class="step"><button type="button" id="kg-m" aria-label="Меньше">−</button><output id="kg-v">2 кг</output><button type="button" id="kg-p" aria-label="Больше">+</button></div>
-          <span class="hint" id="kg-g">на 13 гостей</span>
+          <span class="hint" id="kg-g">на 6–8 гостей</span>
         </div>
         <p class="sum" id="p-sum">6 000 ₽</p>
         <p class="hint" data-t="fill.note">Без учёта сложного декора. Окончательную цену назову, когда подберём декор.</p>
@@ -586,7 +586,7 @@ body.master-on{padding-bottom:110px}
     <div class="faq">
       <h2 style="font-size:clamp(28px,3.6vw,40px);margin-bottom:10px" data-t="faq.title">Вопросы</h2>
       <details><summary><span data-t="faq.question1">За сколько дней нужно заказывать торт?</span></summary><p data-t="faq.answer1">Лучше за 3 дня до праздника. Срочные заказы беру за сутки, если на эту дату есть место. Перед Новым годом заказы принимаю до 20 декабря.</p></details>
-      <details><summary><span data-t="faq.question2">Какой вес торта нужен на моих гостей?</span></summary><p data-t="faq.answer2">Считаем примерно 150 г на человека. Минимальный торт 2 кг, это 12–14 кусочков. Двухъярусный торт от 3,5 кг.</p></details>
+      <details><summary><span data-t="faq.question2">Какой вес торта нужен на моих гостей?</span></summary><p data-t="faq.answer2">Торт весом 2 кг рекомендую на 6–8 гостей. Для большей компании закладываю примерно по 250 г на человека. Минимальный вес двухъярусного торта — 3,5 кг.</p></details>
       <details><summary><span data-t="faq.question3">Можно ли торт без мастики?</span></summary><p data-t="faq.answer3">Я вообще не работаю с мастикой. Покрытие из крема чиз, цветы из пластичного шоколада или живые, фигурки из пряников и шоколада.</p></details>
       <details><summary><span data-t="faq.question4">Есть десерты без глютена и сахара?</span></summary><p data-t="faq.answer4">Да, делаю безглютеновые муссовые трайфлы на миндальном и кокосовом молоке с конфи на заменителе сахара. Сейчас учусь ПП-десертам, напишите, что нужно, подберу.</p></details>
       <details><summary><span data-t="faq.question5">Делаете куличи и наборы к праздникам?</span></summary><p data-t="faq.answer5">Да, к Пасхе пеку бездрожжевые куличи и творожную пасху, к 23 февраля, 8 Марта, Дню матери и Новому году собираю наборы пряников и сладостей. Можно с вашим логотипом.</p></details>
@@ -787,7 +787,7 @@ body.master-on{padding-bottom:110px}
   }
   function calc() {
     $('kg-v').textContent = String(kg).replace('.', ',') + ' кг';
-    $('kg-g').textContent = 'на ' + Math.round(kg / 0.15) + ' гостей';
+    $('kg-g').textContent = kg === 2 ? 'на 6–8 гостей' : 'до ' + Math.floor(kg * 1000 / 250) + ' гостей';
     $('p-sum').textContent = money(Math.round(kg * sel.k));
   }
   $('kg-m').onclick = () => { kg = Math.max(2, kg - 0.5); calc(); };
