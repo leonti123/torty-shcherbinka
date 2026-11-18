@@ -913,7 +913,7 @@ body.master-on{padding-bottom:110px}
     catch (x) { form.comment.value = t; form.comment.select(); $('copy').textContent = 'Выделено в поле пожеланий'; }
   };
   // ===== Master mode =====
-  const MASTER_URL = "";
+  const MASTER_URL = "https://script.google.com/macros/s/AKfycbxfZvhp2NvqAufpqRvwW4gcByg-y-csQYLaX0GrT2M4apTrDmRoOKi2S7_Uir-L5GpS/exec";
   const DRAFT_KEY = 'ts-draft-v1', SAVED_KEY = 'ts-saved-v1', AUTH_KEY = 'ts-auth-v1', ACTIVE_KEY = 'ts-master-v1';
   const query = (selector, root = document) => [...root.querySelectorAll(selector)];
   const nodeText = (root, selector) => root.querySelector(selector)?.textContent || '';
