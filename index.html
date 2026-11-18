@@ -3,9 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex">
 <title>Торты на заказ в Щербинке и Остафьево: торты и сладости от Елены Арцебасовой</title>
 <meta name="description" content="Домашний кондитер Елена: бисквитные и муссовые торты от 3 500 ₽ за кг, бенто, капкейки, пряники, мармеладные букеты. Без мастики. Бесплатная доставка по Щербинке и Остафьево.">
+<link rel="canonical" href="https://torty-shcherbinka.ru/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://torty-shcherbinka.ru/">
+<meta property="og:title" content="Торты на заказ в Щербинке и Остафьево: торты и сладости от Елены Арцебасовой">
+<meta property="og:image" content="https://torty-shcherbinka.ru/img/p3969937_0.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/ku-400-n-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
@@ -359,9 +364,27 @@ body.master-on{padding-bottom:110px}
   .master-content{padding-inline:14px}
 }
 </style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114350107', 'ym');
+
+    ym(114350107, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    // Goals: lead = form sent, contact = click on a contact button
+    window.goal = function(n, p){ try { ym(114350107, 'reachGoal', n, p); } catch (e) {} };
+    document.addEventListener("click", function(e){
+        var a = e.target.closest && e.target.closest('a[data-contact]'); if (!a) return;
+        goal("contact", {via: a.getAttribute('data-contact')});
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114350107" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<div class="mock" data-t="header.mock">Макет сайта для Елены, торты на заказ в Щербинке и Остафьево. После согласования подключим своё имя сайта, а заявки будут приходить вам в сообщения</div>
 
 <header class="top">
   <div class="wrap">
@@ -908,11 +931,11 @@ body.master-on{padding-bottom:110px}
     let ok = false;
     try {
       const res = await fetch(LEAD_URL, {method: 'POST', headers: {'Content-Type': 'text/plain;charset=utf-8'}, signal: AbortSignal.timeout ? AbortSignal.timeout(20000) : undefined,
-        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ['Макет torty-shcherbinka (Елена, торты Щербинка/Остафьево)', ...details()].join('; '), comment: form.comment.value.trim(), website: form.website.value})});
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ['Сайт torty-shcherbinka.ru', ...details()].join('; '), comment: form.comment.value.trim(), website: form.website.value})});
       ok = (await res.json()).ok === true;
     } catch (x) {}
     btn.disabled = false; btn.textContent = 'Отправить заявку';
-    if (ok) { $('f-body').hidden = true; $('sent').hidden = false; cart = []; save(); renderCart(); $('sent').focus({preventScroll: true}); $('sent').scrollIntoView({block: 'center'}); }
+    if (ok) { window.goal && goal('lead'); $('f-body').hidden = true; $('sent').hidden = false; cart = []; save(); renderCart(); $('sent').focus({preventScroll: true}); $('sent').scrollIntoView({block: 'center'}); }
     else { $('fallback').hidden = false; $('fallback').scrollIntoView({block: 'center'}); }
   });
   $('copy').onclick = async () => {
