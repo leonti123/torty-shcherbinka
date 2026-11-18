@@ -907,7 +907,7 @@ body.master-on{padding-bottom:110px}
     let s = '+7'; if (v.length > 1) s += ' (' + v.slice(1, 4); if (v.length >= 4) s += ')'; if (v.length > 4) s += ' ' + v.slice(4, 7); if (v.length > 7) s += '-' + v.slice(7, 9); if (v.length > 9) s += '-' + v.slice(9, 11);
     phone.value = s;
   });
-  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycbxNaKLs6OZmBfpu2ZIXZG1nH1kSlcI_z4yR51K9K2MbWzJtv4fKU1Of2Qj5YZE9lA4q/exec";
   function details() {
     const o = [];
     if (cart.length) { o.push('Заказ: ' + cart.map(c => c.t + ', ' + c.note + (c.price ? ' ' + money(c.price) : '')).join('; ')); const s = cart.reduce((a, c) => a + (c.price || 0), 0); if (s) o.push('Сумма примерно: ' + money(s)); }
